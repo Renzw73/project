@@ -15,7 +15,7 @@ public class LoginServiceImp implements LoginService {
     private LoginTicketMapper loginTicketMapper;
 
     @Override
-    public Map<String, Object> login(String username, String password, int expiredSeconds) {
+    public  Map<String, Object> login(String username, String password, int expiredSeconds) {
         Map<String, Object> map = new HashMap<>();
 
         // 空值处理
@@ -59,5 +59,10 @@ public class LoginServiceImp implements LoginService {
         map.put("ticket", loginTicket.getTicket());
         return map;
 
+    }
+
+    @Override
+    public void logout(String ticket) {
+        loginTicketMapper.updateStatus(ticket, 1);
     }
 }
