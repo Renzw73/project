@@ -1,4 +1,10 @@
 package com.example.newcoder.dao;
 
-public class UserRegisterMapper {
+
+import com.example.newcoder.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserRegisterMapper {
+    User selectById(int id);
 }

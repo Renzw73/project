@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 
+
 public class User {
     private int id;  // 网站生成的用户ID
     private String username; // 注册时用户自定义的用户名
