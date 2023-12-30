@@ -20,8 +20,5 @@ public class User {
     private int status; //
     private String activationCode; // 激活码
     private String headerUrl; // 用户的头像链接
-    /**
-     * 用户注册时间
-     */
     private Date createTime;  // 用户的注册时间
 }

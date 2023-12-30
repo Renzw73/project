@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class T_register {
 
-
     @Autowired
     UserRegisterMapper registerMapper;
 
@@ -20,5 +19,6 @@ public class T_register {
         User user = registerMapper.selectById(1);
         System.out.println(user.toString());
     }
+
 
 }
