@@ -1,6 +1,7 @@
-package com.example.newcoder.mapper;
+package com.example.newcoder.dao;
 
 import com.example.newcoder.entity.LoginTicket;
+import com.example.newcoder.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -14,4 +15,7 @@ public interface LoginTicketMapper {
 
 //    退出，状态改变
     int updateStatus(String ticket, int status);
+
+    User selectByUserName(String username);
+
 }
