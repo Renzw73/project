@@ -18,6 +18,22 @@ spring:
     multipart:
       maxFileSize: 10MB
       maxRequestSize: 20MB
+  mail:
+    host: smtp.163.com
+    password: ESUNQRXTBLNAXRNZ
+    port: 25
+    username: lrd_2020211734@163.com
+    properties:
+      mail:
+        #配置SSL 加密工厂
+        smtp:
+          ssl:
+            #本地测试，先放开ssl
+            enable: false
+            required: false
+          #开启debug模式，这样邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: true
+
 
 server:
   port: 80
@@ -25,4 +41,8 @@ server:
   web:
     resources:
       static-locations: classpath:/static/
+
+      # MailProperties gmail和163邮箱配置不一致，需要注意
+
+
 
