@@ -27,7 +27,7 @@ public class LoginController {
      */
     int REMEMBER_EXPIRED_SECONDS = 3600 * 24 * 100;
 
-    @Value("${server.servlet.context-path}")
+
     private String contextPath;
 
 
@@ -35,6 +35,7 @@ public class LoginController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model, HttpSession session,HttpServletResponse response) {
+
 //        获取参数
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -44,16 +45,17 @@ public class LoginController {
 
 //        检查验证码，为空或者不匹配，返回登录页面
         String kaptcha = (String) session.getAttribute("kaptcha");
+
         if (StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)) {
             model.addAttribute("codeMsg", "验证码不正确!");
             return "/site/login";
         }
 
-//
-//        int expiredSeconds = remenberme ? REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
-//        Map<String, Object> map = LoginServiceImp.login(username, password, expiredSeconds);
-//
-//
+
+        int expiredSeconds = remenberme ? REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
+        Map<String, Object> map = loginServiceImp.login(username, password, expiredSeconds);
+
+
          return "site/index.html";
 
     }
