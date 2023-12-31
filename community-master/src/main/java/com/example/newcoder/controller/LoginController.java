@@ -33,7 +33,12 @@ public class LoginController {
 
     private LoginServiceImp loginServiceImp;
 
-    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    @RequestMapping(path = "/user/loginPage",method = RequestMethod.GET)
+    public String loginPage(){
+        return "/site/login";
+    }
+
+    @RequestMapping(path = "login", method = RequestMethod.POST)
     public String login(HttpServletRequest request, Model model, HttpSession session,HttpServletResponse response) {
 
 //        获取参数
@@ -56,7 +61,7 @@ public class LoginController {
         Map<String, Object> map = loginServiceImp.login(username, password, expiredSeconds);
 
 
-         return "site/index.html";
+        return "site/login";
 
     }
 
