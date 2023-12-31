@@ -18,6 +18,11 @@ spring:
     multipart:
       maxFileSize: 10MB
       maxRequestSize: 20MB
+
+server:
+  port: 80
+
   web:
     resources:
       static-locations: classpath:/static/
+
