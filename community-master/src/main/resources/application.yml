@@ -10,6 +10,7 @@ spring:
       multipart:
         max-file-size: 10MB        # ???????????10MB
         max-request-size: 100MB    # ?????????100MB
+    static-path-pattern: /static/**
   tomcat:
     max-http-post-size: -1
 
